@@ -28,7 +28,8 @@ int countPairs2(int *arr, int len, int value) {
   return totalPairs;
 }
 
-int searchBound(int* dataArr, int startIdx, int endIdx, int searchKey, bool findFirst) {
+int searchBound(int* dataArr, int startIdx,
+int endIdx, int searchKey, bool findFirst) {
   int foundPos = -1;
   while (startIdx <= endIdx) {
     int midIdx = startIdx + (endIdx - startIdx) / 2;
@@ -52,9 +53,11 @@ int countPairs3(int *arr, int len, int value) {
   int pairCounter = 0;
   for (int idx = 0; idx < len; idx++) {
     int diffValue = value - arr[idx];
-    int firstOccur = searchBound(arr, idx + 1, len - 1, diffValue, true);
+    int firstOccur = searchBound(arr, idx + 1,
+    len - 1, diffValue, true);
     if (firstOccur != -1) {
-      int lastOccur = searchBound(arr, idx + 1, len - 1, diffValue, false);
+      int lastOccur = searchBound(arr, idx + 1,
+      len - 1, diffValue, false);
       pairCounter += (lastOccur - firstOccur + 1);
     }
   }
